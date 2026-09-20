@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bildungsbrief Forschung - Wendelin Heinrich Hilscher</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #fafaf8;
+            --bg-secondary: #ffffff;
+            --text-primary: #2a2a2a;
+            --text-secondary: #666666;
+            --accent: #6b8e6f;
+            --accent-light: #e8f0ea;
+            --border: #e5e5e0;
+            --shadow: rgba(0, 0, 0, 0.06);
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            padding: 40px 0 24px;
+            margin-bottom: 40px;
+            box-shadow: 0 1px 3px var(--shadow);
+        }
+
+        h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 28px;
+            font-weight: 500;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            gap: 8px;
+            margin-top: 24px;
+            border-bottom: 1px solid var(--border);
+            overflow-x: auto;
+            scroll-behavior: smooth;
+        }
+
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 12px 20px;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .tab-button:hover {
+            color: var(--text-primary);
+            background: var(--accent-light);
+        }
+
+        .tab-button.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        /* Content Area */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(4px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-section {
+            background: var(--bg-secondary);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            margin-bottom: 40px;
+            box-shadow: 0 1px 3px var(--shadow);
+        }
+
+        .content-section h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 24px;
+            color: var(--accent);
+        }
+
+        .placeholder {
+            background: var(--accent-light);
+            border: 2px dashed var(--accent);
+            padding: 32px;
+            border-radius: 6px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.5;
+        }
+
+        .content-text {
+            color: var(--text-primary);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .content-text p {
+            margin-bottom: 16px;
+        }
+
+        .content-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 40px 0;
+            margin-top: 60px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            header {
+                padding: 32px 0 16px;
+                margin-bottom: 24px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .content-section {
+                padding: 24px;
+            }
+
+            .tab-button {
+                padding: 10px 16px;
+                font-size: 14px;
+            }
+
+            .placeholder {
+                padding: 24px;
+                min-height: 150px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .tab-nav {
+                display: none;
+            }
+
+            header {
+                border: none;
+                box-shadow: none;
+            }
+
+            .content-section {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Bildungsbrief Forschung</h1>
+            <p class="subtitle">Wendelin Heinrich Hilscher</p>
+            <nav class="tab-nav">
+                <button class="tab-button active" onclick="switchTab('mensch')">Mensch Sein</button>
+                <button class="tab-button" onclick="switchTab('sport')">Spaß am Sport</button>
+                <button class="tab-button" onclick="switchTab('medien')">Medien</button>
+                <button class="tab-button" onclick="switchTab('handwerk')">Handwerk</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- BILDUNGSBRIEF 1: Mensch Sein -->
+        <div id="mensch" class="tab-content active">
+            <div class="content-section">
+                <h2>Mensch Sein</h2>
+                <div class="content-text">
+                    <h3 style="font-size: 18px; color: var(--accent); margin-top: 32px; margin-bottom: 16px; font-weight: 500;">Der Weg zur Seele</h3>
+                    
+                    <p>Ich habe vor mein Wesen etliche Sicherheitsmechanismen geschaltet, Hochsicherheitstüren und Alarmsysteme.</p>
+                    
+                    <p>Ich habe verschiedenste Gruppen ausprobiert und immer reingepasst, mein Freundeskreis eine Armee. Zu meinem 18. Geburtstag waren 100 Leute da, trotzdem war ich alleine. So wie morgens am Küchentisch.<br>
+                    Taub. Taubheit. Ich spüre mich nicht mehr. Nur noch in Extremen.</p>
+                    
+                    <p>Ich habe meine Geburtstage geliebt, wegen den ganzen Umarmungen, die ich bekommen habe. Irgendwann habe ich sie verabscheut, wegen den ganzen Umarmungen, die ich bekommen habe, ich wollte doch unsichtbar sein, es war eine Erinnerung an meine Existenz. Die Geburtstagstradition, mein Geschenk an mich, ist etwas zu tun, was so hart ist, dass ich es im normalen Alltag nicht machen würde.</p>
+                    
+                    <p>Unsichtbarkeit ist nur die eine Seite der Wahrheit, auch Anerkennung stand auf dem Speiseplan, meines vom Zeitgeist normierten Ichs.</p>
+                    
+                    <p>Meine Identität: Mir geht's gut, ich komme mit allem zurecht und habe keine Probleme, keinen Stress, so wie alle anderen. Ihr habt Probleme: pah, cringe, schaut mich an, ich bin so angepasst, dass ich keine Probleme habe.<br>
+                    Glücklich die, die was fühlen.)</p>
+                    
+                    <p>Abwägen, Scannen, Analysieren, in meinem Kopf ein Hochleistungsrechner, der Beziehungsdynamiken, Verhalten in Sekundenschnelle analysiert.<br>
+                    Chameleon. Wie kann ich mich am besten anpassen, ich forme meine Identität immer wieder neu. So wie es gerade gebraucht wird. Ich bin ein Stück Ton, weicher Ton, formbarer Ton. Ich bin Ton, Ton aus meiner Gitarre, Posaune.</p>
+                    
+                    <p>Das Gitarren-Monster Gandra, in die Höhle, Mama lässt mich alleine. Gandra wirkt lieb, ist in Echt aber ein Monster, Gandra wurde auch von der Gesellschaft geformt, sie hat sich ihre Überlebensstrategie zurecht gelegt oder sie wurde ihr auferlegt, wie auch immer.<br>
+                    Gandra wurde gezüchtet. Erzogen. Sie zogen. Ja wohin zogen sie? Sie zogen in das hinterletzte Eck. In die dunkelste Ranzbaracke. In die Schwanzbaracke. Schwänzeee.</p>
+                    
+                    <p>Ich schwänze den Englisch Unterricht, ich habe auf wundersame Weise die ersten fünf Male Bauchweh und muss raus. Ich spüre da vorne steht wieder ein Monster, ein Gefühlsmonster, Ebna. Bitte sehe nicht, dass ich noch ein Rest Funken Gefühle habe, ich muss sie verstecken, beschützen, damit sie überleben.</p>
+                    
+                    <p>Wo bin ich? Gibt's mich noch? Wer bin ich? Ich kann alle sein. Aber alle anderen gibt's schon, ich wäre gerne ich.</p>
+                    
+                    <p>Das Posaunenmonster Pösch, es legt das Ei seiner Träume in mir und nötigt mich es auszubrüten. Sie erkennen meine Formbarkeit.<br>
+                    Sie wollen mich machen wie sie. Stumpf, Grau. Gefühlsdiebe. Sie können wenig dafür, ihr Zugang wurde schon vor langer Zeit verstopft, sogar wahrscheinlich notwendig, um zu überleben.<br>
+                    Ich bin in der Not wendig und so gar, wie 12 Minuten gekochte Spaghetti. Um unseren Wohlstand zu halten, gehen wir über Leben.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- BILDUNGSBRIEF 2: Spaß am Sport -->
+        <div id="sport" class="tab-content">
+            <div class="content-section">
+                <h2>Spaß am Sport</h2>
+                <div class="content-text">
+                    <div class="placeholder">
+                        ✏️ Füge hier deinen Text für "Spaß am Sport" ein.
+                        <br><br>
+                        Du kannst den Text direkt zwischen &lt;div class="content-text"&gt; und &lt;/div&gt; einfügen.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BILDUNGSBRIEF 3: Medien -->
+        <div id="medien" class="tab-content">
+            <div class="content-section">
+                <h2>Medien</h2>
+                <div class="content-text">
+                    <div class="placeholder">
+                        ✏️ Füge hier deinen Text für "Medien" ein.
+                        <br><br>
+                        Du kannst den Text direkt zwischen &lt;div class="content-text"&gt; und &lt;/div&gt; einfügen.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BILDUNGSBRIEF 4: Handwerk -->
+        <div id="handwerk" class="tab-content">
+            <div class="content-section">
+                <h2>Handwerk</h2>
+                <div class="content-text">
+                    <div class="placeholder">
+                        ✏️ Füge hier deinen Text für "Handwerk" ein.
+                        <br><br>
+                        Du kannst den Text direkt zwischen &lt;div class="content-text"&gt; und &lt;/div&gt; einfügen.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Bildungsbrief Forschung 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        function switchTab(tabId) {
+            // Alle Tab-Inhalte ausblenden
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Alle Buttons deaktivieren
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Neuen Tab aktivieren
+            document.getElementById(tabId).classList.add('active');
+
+            // Neuen Button aktivieren
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
